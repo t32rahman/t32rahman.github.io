@@ -113,7 +113,7 @@ a {
 }
 a:hover {
   border-bottom-color: transparent;
-  color: #0F044C !important;
+  color: #501B1D !important;
 }
 
 strong, b {
@@ -1402,7 +1402,7 @@ header h6 + p {
   line-height: 1.5em;
 }
 header.major h2 {
-  color: #0F044C;
+  color: #501B1D;
   font-size: 3.5em;
 }
 header.major h2 + p {
@@ -1461,7 +1461,7 @@ input[type=password]:focus,
 input[type=email]:focus,
 select:focus,
 textarea:focus {
-  border-color: #0F044C;
+  border-color: #501B1D;
 }
 
 select {
@@ -1558,7 +1558,7 @@ input[type=radio]:checked + label:before {
 }
 input[type=checkbox]:focus + label:before,
 input[type=radio]:focus + label:before {
-  border-color: #0F044C;
+  border-color: #501B1D;
 }
 
 input[type=checkbox] + label:before {
@@ -1945,7 +1945,7 @@ ul.feature-icons li:before {
   font-weight: 400;
 }
 ul.feature-icons li:before {
-  background: #0F044C;
+  background: #501B1D;
   border-radius: 100%;
   color: #cccccc;
   display: block;
@@ -2131,20 +2131,20 @@ input[type=submit].primary,
 input[type=reset].primary,
 input[type=button].primary,
 .button.primary {
-  background-color: #0F044C;
+  background-color: #501B1D;
   color: #cccccc !important;
 }
 input[type=submit].primary:hover,
 input[type=reset].primary:hover,
 input[type=button].primary:hover,
 .button.primary:hover {
-  background-color: #140564;
+  background-color: #632124;
 }
 input[type=submit].primary:active,
 input[type=reset].primary:active,
 input[type=button].primary:active,
 .button.primary:active {
-  background-color: #0a0334;
+  background-color: #3d1516;
 }
 input[type=submit].disabled, input[type=submit]:disabled,
 input[type=reset].disabled,
@@ -2203,8 +2203,8 @@ input[type=button]:disabled,
   -webkit-justify-content: space-between;
   -ms-justify-content: space-between;
   justify-content: space-between;
-  background: #0F044C;
-  color: #9d9aac;
+  background: #501B1D;
+  color: #ada0a0;
   height: 100%;
   overflow-y: auto;
   position: fixed;
@@ -2220,10 +2220,10 @@ input[type=button]:disabled,
   color: #cccccc;
 }
 #header header p {
-  color: #807c99;
+  color: #9a8586;
 }
 #header a {
-  color: #9d9aac;
+  color: #ada0a0;
 }
 #header a:hover {
   color: #cccccc !important;
@@ -2245,7 +2245,7 @@ input[type=button]:disabled,
   margin: 0;
 }
 #header > header p {
-  color: #9d9aac;
+  color: #ada0a0;
   font-style: italic;
   margin: 1em 0 0 0;
 }
@@ -2263,7 +2263,7 @@ input[type=button]:disabled,
   margin: 0;
 }
 #header > footer .icons li a {
-  color: #807c99;
+  color: #9a8586;
 }
 #header > nav {
   -moz-flex-grow: 1;
@@ -2277,7 +2277,7 @@ input[type=button]:disabled,
   padding: 0;
 }
 #header > nav ul li {
-  border-top: solid 2px #221859;
+  border-top: solid 2px #5c2d2f;
   display: block;
   padding: 0;
 }
@@ -2294,7 +2294,7 @@ input[type=button]:disabled,
 }
 #header > nav ul li a.active {
   background: #fff;
-  color: #0F044C !important;
+  color: #501B1D !important;
 }
 #header > nav ul li:first-child {
   border-top: 0;
@@ -2520,7 +2520,7 @@ input[type=button]:disabled,
     font-weight: 900;
   }
   #titleBar .toggle:before {
-    background: #0F044C;
+    background: #501B1D;
     color: #cccccc;
     content: "\f0c9";
     display: block;
