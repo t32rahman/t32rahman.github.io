@@ -1,2 +1,2 @@
-0.0.0.0 doordash.com
-0.0.0.0 www.doordash.com
+||doordash.com^
+||www.doordash.com^
