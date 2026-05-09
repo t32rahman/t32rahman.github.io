@@ -1,0 +1,28 @@
+:root {
+  /* Colors - Deep charcoal with vibrant purple/blue accents */
+  --bg-color: #0d0f12;
+  --text-color: #e2e8f0;
+  --text-muted: #94a3b8;
+  --accent-primary: #8b5cf6;
+  --accent-secondary: #3b82f6;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
+
+  /* Typography */
+  --font-main: 'Outfit', sans-serif;
+  
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --spacing-xxl: 8rem;
+
+  /* Border Radius */
+  --border-radius: 16px;
+  
+  /* Z-index */
+  --z-canvas: -1;
+  --z-base: 1;
+  --z-header: 100;
+}
