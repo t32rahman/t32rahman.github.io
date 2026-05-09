@@ -4,6 +4,9 @@ export function createScene() {
     const canvasContainer = document.getElementById('canvas-container');
     if (!canvasContainer) return;
 
+    // Respect reduced motion — skip 3D entirely
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     // Scene setup
     const scene = new THREE.Scene();
     
@@ -11,9 +14,9 @@ export function createScene() {
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 20;
 
-    // Renderer setup
+    // Renderer setup — cap DPR at 2 for mobile performance
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     canvasContainer.appendChild(renderer.domElement);
 

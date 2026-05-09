@@ -7,6 +7,15 @@ export function initAnimations() {
 
     gsap.registerPlugin(ScrollTrigger);
 
+    // Respect reduced motion — disable all GSAP animations
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+        gsap.globalTimeline.timeScale(1000); // effectively skip all animations
+        // Still set up active nav tracking (no motion involved)
+        setupActiveNav();
+        return;
+    }
+
     // Initial load animations (Hero section)
     const tl = gsap.timeline();
     
@@ -171,6 +180,37 @@ export function initAnimations() {
             opacity: 0,
             duration: 0.8,
             ease: 'power3.out'
+        });
+    }
+
+    // Active nav state via ScrollTrigger
+    setupActiveNav();
+}
+
+/**
+ * Highlights the active nav link based on scroll position.
+ * Uses GSAP ScrollTrigger for efficient intersection detection.
+ */
+function setupActiveNav() {
+    const navLinks = document.querySelectorAll('nav ul li a');
+    const sections = document.querySelectorAll('section[id]');
+
+    sections.forEach(section => {
+        ScrollTrigger.create({
+            trigger: section,
+            start: 'top center',
+            end: 'bottom center',
+            onEnter: () => setActiveLink(section.id),
+            onEnterBack: () => setActiveLink(section.id),
+        });
+    });
+
+    function setActiveLink(id) {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+            }
         });
     }
 }

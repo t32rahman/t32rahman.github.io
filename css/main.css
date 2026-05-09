@@ -4,11 +4,33 @@
 /* ========================================
    Reset & Base
    ======================================== */
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* offset for fixed header */
+}
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* Skip-to-content link (WCAG 2.1 AA) */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-primary);
+  color: #fff;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: top 0.2s ease;
+}
+.skip-nav:focus {
+  top: 0;
+  color: #fff;
 }
 
 body {
@@ -114,11 +136,13 @@ nav ul li a::after {
   transition: width 0.3s ease;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
   color: var(--accent-primary);
 }
 
-nav ul li a:hover::after {
+nav ul li a:hover::after,
+nav ul li a.active::after {
   width: 100%;
 }
 
@@ -215,9 +239,7 @@ section:nth-child(even)::before {
   flex-wrap: wrap;
 }
 
-.hero-cta .btn {
-  visibility: visible !important;
-}
+/* CTA visibility ensured by GSAP clearProps — no !important needed */
 
 /* ========================================
    Buttons
@@ -516,6 +538,18 @@ section:nth-child(even)::before {
   transform: translateX(4px);
 }
 
+/* Coming Soon / Upcoming cards */
+.writing-card--upcoming {
+  opacity: 0.65;
+  cursor: default;
+  pointer-events: none;
+}
+
+.writing-card--upcoming .read-more {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 /* ========================================
    Contact Section
    ======================================== */
@@ -586,18 +620,30 @@ section:nth-child(even)::before {
 
 .footer-socials {
   display: flex;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
 }
 
 .footer-socials a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   color: var(--text-muted);
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.9rem;
   transition: color 0.3s ease;
+}
+
+.footer-socials a svg {
+  transition: transform 0.3s ease;
 }
 
 .footer-socials a:hover {
   color: var(--accent-primary);
+}
+
+.footer-socials a:hover svg {
+  transform: translateY(-2px);
 }
 
 .footer-bottom {
@@ -777,4 +823,20 @@ section:nth-child(even)::before {
 :focus-visible {
   outline: 2px solid var(--accent-primary);
   outline-offset: 2px;
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
