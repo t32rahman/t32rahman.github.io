@@ -4,10 +4,22 @@
 <head>
 	<title>Tamim Rahman | Systems Design Engineer</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="Portfolio of Tamim Rahman, a Systems Design Engineer specializing in full-stack web development, Python automation, DevOps, and embedded systems.">
+	
+	<meta property="og:title" content="Tamim Rahman | Systems Design Engineer" />
+	<meta property="og:description" content="I build at the intersection of hardware and software. Systems Design Engineer at AMD." />
+	<meta property="og:image" content="https://tamimrahman.dev/images/og-image.png" />
+	<meta property="og:url" content="https://tamimrahman.dev" />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary_large_image" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
 	<link rel="stylesheet" href="css/main.css" />
-	<link rel="icon" href="images/favicon_ryerson.jpg" type="image/jpg" />
+	<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 	<link rel="canonical" href="https://tamimrahman.dev/">
 </head>
 
@@ -24,9 +36,15 @@
                 <li><a href="#qual">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#writing">Writing</a></li>
+                <li><a href="#contact">Connect</a></li>
             </ul>
         </nav>
+        <button class="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
 	<!-- Main -->
@@ -34,46 +52,75 @@
         
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
-            <h1 class="hero-title">Hi, I'm Tamim Rahman</h1>
-            <p class="hero-subtitle">Systems Design Engineer at AMD. Passionate about automation, software architecture, and creating robust systems.</p>
-            <a href="#about" class="btn">Discover My Work</a>
+            <p class="hero-eyebrow">Systems Design Engineer · AMD</p>
+            <h1 class="hero-title">I build where hardware meets software.</h1>
+            <p class="hero-subtitle">From GPU validation infrastructure to full-stack automation — I design systems that bridge silicon and code.</p>
+            <div class="hero-cta">
+                <a href="#about" class="btn">Explore My Work</a>
+                <a href="./files/TamimRahman_resume.pdf" target="_blank" class="btn btn-outline">View Resume</a>
+            </div>
         </section>
 
         <!-- About Me -->
         <section id="about">
             <h2 class="section-title">About Me</h2>
             <div class="glass-card">
-                <p>
-                    I am currently a Systems Design Engineer 2 at AMD.
-                    I recently graduated with honors from Toronto Metropolitan University with a Bachelor of Engineering in Computer Engineering.
-                    My main niche is that I have a computer engineering degree, which allows me to provide holistic solutions that involve both hardware and software components.
-                    Throughout my academic and professional career, I have received several honors including the Jack Roy Longstaffe Memorial Award, Po Keith Achievement Award, Aditya Jha Diversity Award, and Dean's List (2019-2024).
-                </p>
-                <p>
-                    I am a strong believer in the power of gaining practical experience and continuous learning. 
-                    I hope to also pursue a better understanding of software security such that I can provide scalable and secure software solutions for primarily hardware companies or local businesses that are looking to upgrade their internal software tooling.
-                </p>
-                <p>
-                    <strong>Education:</strong> Toronto Metropolitan University (2019 - 2024) - Bachelor of Engineering, Computer Engineering with Software Specialization (Honors).
-                </p>
-                <br/>
-                <a class="btn" href="./files/TamimRahman_resume.pdf" target="_blank">View Resume</a>
+                <div class="about-layout">
+                    <div class="about-photo">
+                        <img src="images/avatar.jpg" alt="Tamim Rahman" class="headshot" />
+                    </div>
+                    <div class="about-text">
+                        <p>I build at the intersection of hardware and software — where most engineers only see one side. With a Computer Engineering foundation and hands-on experience architecting GPU validation infrastructure at AMD, I design systems that bridge silicon and code.</p>
+                        <p>Currently deepening my expertise in secure systems design and scalable automation frameworks that support cross-functional engineering teams.</p>
+                        <p><strong>Education:</strong> Toronto Metropolitan University (2019–2024) — B.Eng. Computer Engineering, Software Specialization (Honors). Dean's List 2019–2024.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Qualifications -->
         <section id="qual">
-            <h2 class="section-title">Qualifications</h2>
-            <div class="glass-card">
-                <p>I am experienced in Fullstack Web Development, Python Automation, DevOps, and Android development using Java. I have experience working in the field of cryptography, computer vision, and data visualization.</p>
-                <ul class="feature-icons">
-                    <li>Python, Java, JS, C/C++, Rust</li>
-                    <li>REST APIs, Express.js</li>
-                    <li>Full Stack Web Development</li>
-                    <li>CI/CD, Git version control</li>
-                    <li>Linux Environments</li>
-                    <li>Multiple academic & industry awards</li>
-                </ul>
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="glass-card skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">Rust</span>
+                    </div>
+                </div>
+                <div class="glass-card skill-category">
+                    <h3>Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Ansible</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+                <div class="glass-card skill-category">
+                    <h3>Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">Three.js</span>
+                    </div>
+                </div>
+                <div class="glass-card skill-category">
+                    <h3>Domains</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">GPU Validation</span>
+                        <span class="skill-tag">Embedded Systems</span>
+                        <span class="skill-tag">Cryptography</span>
+                        <span class="skill-tag">Computer Vision</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -83,8 +130,13 @@
             <div class="experience-list">
                 <div class="glass-card experience-item">
                     <h4>Systems Design Engineer 2</h4>
-                    <span class="date">May 2024 - Present</span>
+                    <span class="date">Since 2024</span>
                     <p><strong>Advanced Micro Devices (AMD)</strong></p>
+                    <ul>
+                        <li>Architect automation frameworks that reduce GPU validation cycles for data center products</li>
+                        <li>Design and maintain CI/CD infrastructure supporting cross-functional engineering teams</li>
+                        <li>Develop tooling used across multiple product teams to streamline hardware/software integration testing</li>
+                    </ul>
                 </div>
                 
                 <div class="glass-card experience-item">
@@ -116,30 +168,34 @@
                         <li>Developed an implementation of post-quantum cryptography (SIKE) using Rust.</li>
                     </ul>
                 </div>
-            </div>
-        </section>
 
-        <!-- Extracurricular -->
-        <section id="extracurricular">
-            <h2 class="section-title">Extracurricular</h2>
-            <div class="grid">
-                <div class="glass-card">
+                <div class="glass-card experience-item">
                     <h4>Software Developer</h4>
                     <span class="date">Apr 2021 - Present</span>
                     <p><strong>Helium Aero (Startup)</strong></p>
-                    <p>Developed an accurate simulation of the MVP and designed communication protocols using C++ and Python.</p>
+                    <ul>
+                        <li>Developed an accurate simulation of the MVP and designed communication protocols using C++ and Python.</li>
+                    </ul>
                 </div>
-                <div class="glass-card">
+
+                <span class="experience-subheading">Leadership & Extracurricular</span>
+
+                <div class="glass-card experience-item">
                     <h4>Lead Developer (Executive)</h4>
                     <span class="date">Sep 2020 - Present</span>
                     <p><strong>Ryerson ECE Student Society</strong></p>
-                    <p>Developed a custom discord bot to authenticate and automate user roles for online events.</p>
+                    <ul>
+                        <li>Developed a custom discord bot to authenticate and automate user roles for online events.</li>
+                    </ul>
                 </div>
-                <div class="glass-card">
+
+                <div class="glass-card experience-item">
                     <h4>Controls Developer</h4>
                     <span class="date">Sep 2019 - Aug 2020</span>
                     <p><strong>Ryerson Rams Robotics (R3)</strong></p>
-                    <p>Developed a python heat map to visualize radiation data and an app to simulate incoming radiation data.</p>
+                    <ul>
+                        <li>Developed a python heat map to visualize radiation data and an app to simulate incoming radiation data.</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -147,54 +203,91 @@
         <!-- Projects -->
         <section id="projects">
             <h2 class="section-title">Projects</h2>
-            <div class="grid projects-grid">
+            <div class="projects-grid">
                 <div class="glass-card project-card">
                     <a href="https://github.com/t32rahman/CVDelivery" target="_blank">
                         <div class="project-img-wrapper">
-                            <img src="images/CVDelivery.gif" alt="CVDelivery" />
+                            <img src="images/CVDelivery.gif" alt="CVDelivery" loading="lazy" />
                         </div>
                         <h4>Contactless Delivery</h4>
                         <p>Python app using openCV and Google Vision API for delivery notifications.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">Google Vision</span>
+                        </div>
                     </a>
                 </div>
                 
                 <div class="glass-card project-card">
                     <a href="https://github.com/t32rahman/pokedex" target="_blank">
                         <div class="project-img-wrapper">
-                            <img src="images/pokedex.gif" alt="Pokedex" />
+                            <img src="images/pokedex.gif" alt="Pokedex" loading="lazy" />
                         </div>
                         <h4>Android Pokédex</h4>
                         <p>Java Android app to search Pokémon data.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Android</span>
+                            <span class="skill-tag">REST API</span>
+                        </div>
                     </a>
                 </div>
 
                 <div class="glass-card project-card">
                     <a href="https://github.com/t32rahman/IoT-Covid-Tracking" target="_blank">
                         <div class="project-img-wrapper">
-                            <img src="images/ICUE-covid-phone-tracker.gif" alt="IoT Tracker" />
+                            <img src="images/ICUE-covid-phone-tracker.gif" alt="IoT Tracker" loading="lazy" />
                         </div>
                         <h4>IoT Covid-19 Tracker</h4>
                         <p>Flask web server and MongoDB system for tracking building entry/exit via RFID.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">IoT</span>
+                        </div>
                     </a>
                 </div>
                 
                  <div class="glass-card project-card">
                     <a href="https://github.com/t32rahman/VidQuiz" target="_blank">
                         <div class="project-img-wrapper">
-                            <img src="images/demo_vid2go.gif" alt="Vid2Go" />
+                            <img src="images/demo_vid2go.gif" alt="Vid2Go" loading="lazy" />
                         </div>
                         <h4>Vid2Go Extension</h4>
                         <p>Chrome Extension parsing YouTube captions for relevant timestamps.</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Chrome Extension</span>
+                        </div>
                     </a>
                 </div>
             </div>
         </section>
 
+        <!-- Writing Section -->
+        <section id="writing" class="section">
+            <h2 class="section-title">Writing</h2>
+            <div class="writing-grid">
+                <a href="#" class="glass-card writing-card">
+                    <h3>What GPU Validation Taught Me About Software Architecture</h3>
+                    <p>Bridging the gap between silicon testing and scalable software systems.</p>
+                    <span class="read-more">Read Article &rarr;</span>
+                </a>
+                <a href="#" class="glass-card writing-card">
+                    <h3>Post-Quantum Cryptography in Rust: Lessons from SIKE</h3>
+                    <p>Implementing side-channel resistant algorithms in modern systems languages.</p>
+                    <span class="read-more">Read Article &rarr;</span>
+                </a>
+            </div>
+        </section>
+
         <!-- Contact -->
         <section id="contact">
-            <h2 class="section-title">Contact Me</h2>
-            <div class="glass-card" style="text-align: center;">
-                <p>Feel free to contact me anytime via LinkedIn or e-mail. I'd love to chat about software engineering, cybersecurity, or anything related to tech!</p>
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="glass-card">
+                <p>Open to interesting conversations about systems engineering, GPU computing, and the hardware-software boundary.</p>
                 <br/>
                 <ul class="contact-links">
                     <li><a href="https://www.linkedin.com/in/tmrahman/" target="_blank">LinkedIn</a></li>
@@ -207,8 +300,20 @@
     </main>
 
 	<!-- Footer -->
-    <footer>
-        <p>&copy; TRahman. All rights reserved.</p>
+    <footer class="glass-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>TR.</h3>
+                <p>Bridging silicon and code.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://linkedin.com/in/tamimrahman" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                <a href="https://github.com/t32rahman" target="_blank" aria-label="GitHub">GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tamim Rahman. All rights reserved.</p>
+        </div>
     </footer>
 
 	<!-- Scripts -->
@@ -220,8 +325,8 @@
     <script type="importmap">
         {
         "imports": {
-            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
         }
         }
     </script>

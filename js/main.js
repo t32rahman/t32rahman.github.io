@@ -9,4 +9,23 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         initAnimations();
     }, 100);
+
+    // 3. Hamburger Menu Logic
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('nav ul');
+    
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+    }
 });

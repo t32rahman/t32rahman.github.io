@@ -61,8 +61,8 @@ export function createScene() {
     let mouseY = 0;
     let targetX = 0;
     let targetY = 0;
-    const windowHalfX = window.innerWidth / 2;
-    const windowHalfY = window.innerHeight / 2;
+    let windowHalfX = window.innerWidth / 2;
+    let windowHalfY = window.innerHeight / 2;
 
     document.addEventListener('mousemove', (event) => {
         mouseX = (event.clientX - windowHalfX);
@@ -74,6 +74,8 @@ export function createScene() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
+        windowHalfX = window.innerWidth / 2;
+        windowHalfY = window.innerHeight / 2;
     });
 
     // Animation loop
