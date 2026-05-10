@@ -107,6 +107,13 @@ header {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   flex-shrink: 0;
+  text-decoration: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
 nav ul {
