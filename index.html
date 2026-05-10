@@ -320,7 +320,7 @@
                 <ul class="contact-links">
                     <li><a href="https://www.linkedin.com/in/tmrahman/" target="_blank">LinkedIn</a></li>
                     <li><a href="https://github.com/t32rahman" target="_blank">GitHub</a></li>
-                    <li><a href="mailto:tamimr247@gmail.com">Email Me</a></li>
+                    <li><a href="mailto:tamimr247@gmail.com" id="email-me-link">Email Me</a></li>
                 </ul>
             </div>
         </section>
@@ -367,6 +367,25 @@
     
     <!-- Main Application -->
     <script type="module" src="./js/main.js"></script>
+
+    <!-- Email Modal -->
+    <div id="email-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-content glass-card">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h3>Get in Touch</h3>
+            <p>You can reach me at:</p>
+            <div class="email-display">
+                <span id="email-address">tamimr247@gmail.com</span>
+                <button id="copy-email" class="btn-copy" title="Copy to clipboard">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+            </div>
+            <div id="copy-feedback" class="copy-feedback">Copied!</div>
+            <div class="modal-actions">
+                <a href="mailto:tamimr247@gmail.com" class="btn">Open Mail App</a>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
