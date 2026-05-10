@@ -28,4 +28,70 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // 4. Email Modal Logic
+    const emailModal = document.getElementById('email-modal');
+    const emailMeLink = document.getElementById('email-me-link');
+    const closeModal = document.querySelector('.modal-close');
+    const copyEmailBtn = document.getElementById('copy-email');
+    const emailAddress = document.getElementById('email-address');
+    const copyFeedback = document.getElementById('copy-feedback');
+
+    if (emailModal && emailMeLink) {
+        // Open Modal
+        emailMeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            emailModal.classList.add('active');
+            emailModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        });
+
+        // Close Modal Functions
+        const close = () => {
+            emailModal.classList.remove('active');
+            emailModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = ''; // Restore scroll
+        };
+
+        if (closeModal) {
+            closeModal.addEventListener('click', close);
+        }
+
+        // Close on overlay click
+        emailModal.addEventListener('click', (e) => {
+            if (e.target === emailModal) {
+                close();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && emailModal.classList.contains('active')) {
+                close();
+            }
+        });
+
+        // Copy to Clipboard
+        if (copyEmailBtn && emailAddress) {
+            copyEmailBtn.addEventListener('click', () => {
+                const text = emailAddress.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    // Show feedback
+                    if (copyFeedback) {
+                        copyFeedback.classList.add('show');
+                        setTimeout(() => {
+                            copyFeedback.classList.remove('show');
+                        }, 2000);
+                    }
+                    
+                    // Subtle button animation
+                    copyEmailBtn.style.color = 'var(--accent-primary)';
+                    setTimeout(() => {
+                        copyEmailBtn.style.color = '';
+                    }, 2000);
+                });
+            });
+        }
+    }
 });
+
