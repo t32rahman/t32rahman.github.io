@@ -214,8 +214,8 @@ export function createScene() {
         targetX += (mouseX - targetX) * 0.05;
         targetY += (mouseY - targetY) * 0.05;
         
-        camera.rotation.y = -targetX * 0.5;
-        camera.rotation.x = -targetY * 0.5;
+        camera.rotation.y = -targetX * 0.1;
+        camera.rotation.x = -targetY * 0.1;
         
         // Constant slow forward drift
         if (!window.gsap) {
