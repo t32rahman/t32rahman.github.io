@@ -19,56 +19,74 @@ export function initAnimations() {
     // Initial load animations (Hero section)
     const tl = gsap.timeline();
     
-    tl.from('header', {
-        y: -50,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
-    })
-    .from('.hero-eyebrow', {
-        y: 15,
-        opacity: 0,
-        duration: 0.6,
-        ease: 'power3.out'
-    }, '-=0.4')
-    .from('.hero-title', {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
-    }, '-=0.3')
-    .from('.hero-subtitle', {
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
-    }, '-=0.4')
-    .fromTo('.hero-cta .btn', {
-        y: 20,
-        opacity: 0
-    }, {
-        y: 0,
-        opacity: 1,
-        duration: 0.5,
-        stagger: 0.15,
-        ease: 'back.out(1.7)',
-        clearProps: 'all'
-    }, '-=0.2');
+    if (document.querySelector('header')) {
+        tl.from('header', {
+            y: -50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out'
+        });
+    }
 
-    // Scroll animations for Section Titles
-    gsap.utils.toArray('.section-title').forEach(title => {
-        gsap.from(title, {
-            scrollTrigger: {
-                trigger: title,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse'
-            },
+    if (document.querySelector('.hero-eyebrow')) {
+        tl.from('.hero-eyebrow', {
+            y: 15,
+            opacity: 0,
+            duration: 0.6,
+            ease: 'power3.out'
+        }, '-=0.4');
+    }
+
+    if (document.querySelector('.hero-title')) {
+        tl.from('.hero-title', {
             y: 30,
             opacity: 0,
             duration: 0.8,
             ease: 'power3.out'
+        }, '-=0.3');
+    }
+
+    if (document.querySelector('.hero-subtitle')) {
+        tl.from('.hero-subtitle', {
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power3.out'
+        }, '-=0.4');
+    }
+
+    const heroBtns = document.querySelectorAll('.hero-cta .btn');
+    if (heroBtns.length > 0) {
+        tl.fromTo('.hero-cta .btn', {
+            y: 20,
+            opacity: 0
+        }, {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            stagger: 0.15,
+            ease: 'back.out(1.7)',
+            clearProps: 'all'
+        }, '-=0.2');
+    }
+
+    // Scroll animations for Section Titles
+    const sectionTitles = gsap.utils.toArray('.section-title');
+    if (sectionTitles.length > 0) {
+        sectionTitles.forEach(title => {
+            gsap.from(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
         });
-    });
+    }
 
     // About Section - photo + text
     const aboutPhoto = document.querySelector('.about-photo');
@@ -86,18 +104,21 @@ export function initAnimations() {
         });
     }
 
-    gsap.from('#about .about-text p', {
-        scrollTrigger: {
-            trigger: '#about',
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-        },
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power2.out'
-    });
+    const aboutTexts = document.querySelectorAll('#about .about-text p');
+    if (aboutTexts.length > 0) {
+        gsap.from('#about .about-text p', {
+            scrollTrigger: {
+                trigger: '#about',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: 'power2.out'
+        });
+    }
 
     // Skills grid - stagger in skill category cards
     const skillCards = document.querySelectorAll('.skill-category');

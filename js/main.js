@@ -124,5 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
-});
 
+    // 5. Dynamic Footer Year
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+});
