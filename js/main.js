@@ -13,19 +13,50 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. Hamburger Menu Logic
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('nav ul');
+    const menuLinks = navLinks ? navLinks.querySelectorAll('a') : [];
     
+    const toggleMenu = (forceState) => {
+        const isOpen = forceState !== undefined ? forceState : !navLinks.classList.contains('open');
+        
+        hamburger.classList.toggle('active', isOpen);
+        navLinks.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen);
+        
+        // Handle tabindex for mobile accessibility
+        if (window.innerWidth <= 768) {
+            menuLinks.forEach(link => {
+                link.setAttribute('tabindex', isOpen ? '0' : '-1');
+            });
+        } else {
+            menuLinks.forEach(link => {
+                link.removeAttribute('tabindex');
+            });
+        }
+    };
+
     if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('open');
-        });
+        // Initial state
+        if (window.innerWidth <= 768) {
+            menuLinks.forEach(link => link.setAttribute('tabindex', '-1'));
+        }
+
+        hamburger.addEventListener('click', () => toggleMenu());
 
         // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('open');
-            });
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                // Reset state for desktop
+                menuLinks.forEach(link => link.removeAttribute('tabindex'));
+                hamburger.setAttribute('aria-expanded', 'false'); // Not applicable but good to reset
+            } else if (!navLinks.classList.contains('open')) {
+                // Ensure links are hidden for screen readers on mobile when closed
+                menuLinks.forEach(link => link.setAttribute('tabindex', '-1'));
+            }
         });
     }
 
