@@ -69,12 +69,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const copyFeedback = document.getElementById('copy-feedback');
 
     if (emailModal && emailMeLink) {
+        let lastFocusedElement;
+
         // Open Modal
         emailMeLink.addEventListener('click', (e) => {
             e.preventDefault();
+            lastFocusedElement = document.activeElement;
             emailModal.classList.add('active');
             emailModal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden'; // Prevent scroll
+
+            // Focus trapping setup
+            const focusableElements = emailModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (focusableElements.length > 0) {
+                // Short timeout to ensure display: block/flex is applied for focus
+                setTimeout(() => focusableElements[0].focus(), 100);
+            }
         });
 
         // Close Modal Functions
@@ -82,6 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
             emailModal.classList.remove('active');
             emailModal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = ''; // Restore scroll
+            if (lastFocusedElement) {
+                lastFocusedElement.focus();
+            }
         };
 
         if (closeModal) {
@@ -95,10 +108,30 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Close on Escape key
+        // Modal Keyboard Logic (Trap + Escape)
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && emailModal.classList.contains('active')) {
+            if (!emailModal.classList.contains('active')) return;
+
+            if (e.key === 'Escape') {
                 close();
+            }
+
+            if (e.key === 'Tab') {
+                const focusableElements = emailModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                if (e.shiftKey) { // Shift + Tab
+                    if (document.activeElement === firstElement) {
+                        lastElement.focus();
+                        e.preventDefault();
+                    }
+                } else { // Tab
+                    if (document.activeElement === lastElement) {
+                        firstElement.focus();
+                        e.preventDefault();
+                    }
+                }
             }
         });
 
