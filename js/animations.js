@@ -150,7 +150,8 @@ export function initAnimations() {
             opacity: 0,
             duration: 0.8,
             stagger: 0.15,
-            ease: 'power3.out'
+            ease: 'power3.out',
+            clearProps: 'transform'
         });
     }
 
